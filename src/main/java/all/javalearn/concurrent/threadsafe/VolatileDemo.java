@@ -24,6 +24,7 @@ public class VolatileDemo
                 @Override
                 public void run() {
                     volatileDemo.addOne();
+                    System.out.println("线程" + Thread.currentThread().getName() + "执行完毕!");
                     countDownLatch.countDown();;
                 }
             }).start();
@@ -32,6 +33,7 @@ public class VolatileDemo
                 @Override
                 public void run() {
                     volatileDemo.addOne();
+                    System.out.println("线程" + Thread.currentThread().getName() + "执行完毕!");
                     countDownLatch.countDown();;
                 }
             }).start();
