@@ -29,7 +29,7 @@ public class RoutingModelServer
                 for (int j = 0; j < i; j++) {
                     message += ".";
                 }
-                channel.basicPublish(EXCHANGE_NAME, "error", null, message.getBytes());
+                channel.basicPublish(EXCHANGE_NAME, "info", null, message.getBytes());
             }
         }
         catch (Exception e) {
