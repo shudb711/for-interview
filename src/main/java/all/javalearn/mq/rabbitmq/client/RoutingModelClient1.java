@@ -26,8 +26,6 @@ public class RoutingModelClient1
         channel.queueDeclare("accept_queue3", true, false, false, params);
         channel.queueBind("accept_queue3", EXCHANGE_NAME, "info");
 
-//        channel.queueBind(queueName, EXCHANGE_NAME, "error");
-//        channel.queueBind(queueName, EXCHANGE_NAME, "warn");
 
         channel.exchangeDeclare("some.exchange.name", "direct");
         channel.queueDeclare("dead_queue",false,false,false,null);
@@ -36,8 +34,6 @@ public class RoutingModelClient1
 
         channel.basicConsume("accept_queue3", false, new DefaultConsumer(channel) {
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-//                String message = new String(body, "UTF-8");
-//                System.out.println("dead_queue" + ":[x] Received '" + message + "'" + envelope.getRoutingKey() + envelope.getDeliveryTag() + envelope.getExchange());
                 channel.basicReject(envelope.getDeliveryTag(),false);
             }
         });
