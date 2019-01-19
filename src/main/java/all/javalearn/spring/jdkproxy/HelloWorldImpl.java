@@ -1,4 +1,4 @@
-package all.javalearn.jdkproxy;
+package all.javalearn.spring.jdkproxy;
 
 /**
  * @Function:
