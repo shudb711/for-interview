@@ -118,6 +118,28 @@ public class SingleLinkedList<K>
         return null;
     }
 
+    //反转
+    public Node reverse()
+    {
+        Node add = new Node("null");
+        add.next = head;
+
+        Node addSecond = head;
+        Node addThird = head.next;
+        while (addSecond != null)
+        {
+            Node temp =
+            addSecond = addThird;
+            addThird = addThird.next;
+            add.next = addSecond;
+            addSecond.next = addThird;
+        }
+
+
+
+        return null;
+    }
+
     class Node<K>
     {
         private K data;
