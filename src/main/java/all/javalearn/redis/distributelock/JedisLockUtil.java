@@ -1,4 +1,4 @@
-package all.javalearn;
+package all.javalearn.redis.distributelock;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
