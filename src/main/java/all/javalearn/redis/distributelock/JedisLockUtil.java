@@ -6,18 +6,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.types.Expiration;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
 import java.util.Random;
-/**
- * Description
- *
- * @author thinkpad
- * @version 1.0
- * Date                 Author			Version     Description
- * ------------------------------------------------------------------
- * 2018-7-9--20:46     suyin             1.0      Version
- */
 
 @Component
 public class JedisLockUtil {
