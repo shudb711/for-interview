@@ -19,5 +19,7 @@ public class DemoApplication {
 		System.out.println(777);
 
 		SpringApplication.run(DemoApplication.class, args);
+
+		System.out.println(888);
 	}
 }
