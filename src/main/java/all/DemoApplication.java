@@ -10,9 +10,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		System.out.println(666);
-		System.out.println(777);
-
 		SpringApplication.run(DemoApplication.class, args);
 	}
 }
