@@ -10,9 +10,9 @@ public class GenerateConnection {
     private static ConnectionFactory connectionFactory = new ConnectionFactory();
     static
     {
-        connectionFactory.setHost("10.1.1.32");
-        connectionFactory.setUsername("root");
-        connectionFactory.setPassword("root");
+        connectionFactory.setHost("118.190.106.221");
+        connectionFactory.setUsername("shudb");
+        connectionFactory.setPassword("shudb");
     }
     public static Connection getConnectionFactory()
     {

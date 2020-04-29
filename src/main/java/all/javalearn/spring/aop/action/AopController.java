@@ -24,7 +24,7 @@ public class AopController implements ApplicationContextAware {
         System.out.println("===test aop=====");
 
         /**
-         此种方式调用testInnerAop(),打印结果如下所示，这是因为被调用的是未被代理的方法(原始方法)
+         此种方式调用testInnerAop(),打印结方果如下所示，这是因为被调用的是未被代理的法(原始方法)
          ===========before================
          ===test aop=====
          ===test inner aop=====

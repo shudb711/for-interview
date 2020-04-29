@@ -121,23 +121,20 @@ public class SingleLinkedList<K>
     //反转
     public Node reverse()
     {
-        Node add = new Node("null");
-        add.next = head;
+        Node pre = null;
+        Node next = null;
 
-        Node addSecond = head;
-        Node addThird = head.next;
-        while (addSecond != null)
-        {
-            Node temp =
-            addSecond = addThird;
-            addThird = addThird.next;
-            add.next = addSecond;
-            addSecond.next = addThird;
+        Node node = head;
+        while (node != null) {
+            next = node.next;
+
+            node.next = pre;
+
+            pre = node;
+            node = next;
         }
 
-
-
-        return null;
+        return pre;
     }
 
     class Node<K>

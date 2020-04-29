@@ -2,6 +2,8 @@ package com.example.demo;
 
 import all.DemoApplication;
 import all.javalearn.redis.distributelock.JedisLockUtil;
+import all.javalearn.spring.ioc.Animal;
+import all.javalearn.spring.ioc.FactoryList;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,15 @@ public class ApplicationTest
 //                }
 //            }).start();
 //        }
+    }
+
+    @Autowired
+    private FactoryList<Animal, String> rechargeManager;
+
+    @Test
+    public void testIoc() {
+        Animal cat = rechargeManager.getBean("cat");
+        System.out.println(111);
     }
 
 
