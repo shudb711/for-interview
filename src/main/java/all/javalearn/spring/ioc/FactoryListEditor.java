@@ -1,4 +1,4 @@
-//package all.javalearn.spring.ioc;
+package all.javalearn.spring.ioc;//package all.javalearn.spring.ioc;
 //
 //import org.springframework.beans.factory.InitializingBean;
 //import org.springframework.beans.propertyeditors.CustomCollectionEditor;

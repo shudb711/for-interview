@@ -1,8 +1,5 @@
 package all.javalearn.spring.aop.action;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,11 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 
 @RestController
-public class AopController implements ApplicationContextAware {
+public class AopController implements AopControllerApi {
 
-    private ApplicationContext applicationContext;
 
-    @RequestMapping(value = "/testAop",method = RequestMethod.POST)
     public void testAop()
     {
         System.out.println("===test aop=====");
@@ -30,7 +25,7 @@ public class AopController implements ApplicationContextAware {
          ===test inner aop=====
          ===========after================
          */
-        testInnerAop();
+//        testInnerAop();
 
 
         /*
@@ -49,10 +44,6 @@ public class AopController implements ApplicationContextAware {
     public void testInnerAop()
     {
         System.out.println("===test inner aop=====");
-    }
-
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        this.applicationContext = applicationContext;
     }
 
 }
