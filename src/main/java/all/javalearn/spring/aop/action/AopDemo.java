@@ -1,4 +1,4 @@
-package all.javalearn.spring.aop;
+package all.javalearn.spring.aop.action;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 public class AopDemo
 {
 
-    @Pointcut("execution (* all.javalearn.spring.aop.action..*.*(..))")
+    @Pointcut("execution (* all.javalearn.spring.aop.action.AopControllerApi.*(..))")
     public void pointcut()
     {
 

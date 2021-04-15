@@ -2,8 +2,8 @@ package com.example.demo;
 
 import all.DemoApplication;
 import all.javalearn.redis.distributelock.JedisLockUtil;
-import all.javalearn.spring.ioc.Animal;
-import all.javalearn.spring.ioc.FactoryList;
+import all.javalearn.spring.aop.action.AopController;
+import all.javalearn.spring.aop.error.AsyncService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,16 +48,30 @@ public class ApplicationTest
 //        }
     }
 
-    @Autowired
-    private FactoryList<Animal, String> rechargeManager;
+//    @Autowired
+//    private FactoryList<Animal, String> rechargeManager;
+//
+//    @Test
+//    public void testIoc() {
+//        Animal cat = rechargeManager.getBean("cat");
+//        System.out.println(111);
+//    }
 
+    @Autowired
+    private AopController aopController;
     @Test
-    public void testIoc() {
-        Animal cat = rechargeManager.getBean("cat");
-        System.out.println(111);
+    public void testAop() {
+        aopController.testAop();
     }
 
 
+    @Autowired
+    private AsyncService asyncService;
 
+    @Test
+    public void testAsync(){
+        System.out.println(Thread.currentThread().getName());
+        asyncService.async1();
+    }
 
 }

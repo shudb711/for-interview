@@ -4,10 +4,7 @@
 #      nodes: 127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384,127.0.0.1:6385
 #test cherry-pick
 
-spring:
-  redis:
-    host: localhost
-    password:
-    database: 0
-    port: 6379
+#spring:
+#  aop:
+#    proxy-target-class: false
 
