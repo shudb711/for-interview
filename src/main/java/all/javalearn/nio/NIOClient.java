@@ -1,4 +1,4 @@
-package all.javalearn;
+package all.javalearn.nio;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -11,9 +11,9 @@ import java.util.Iterator;
 public class NIOClient {
 	
 	public static void main(String[] args) {        
-        for(int i = 0; i < 10; i++){  
+//        for(int i = 0; i < 10; i++){
             new Worker().start();  
-        }        
+//        }
     }  
 	
 	static class Worker extends Thread {
@@ -26,8 +26,8 @@ public class NIOClient {
 				channel = SocketChannel.open();  // SocketChannel，你看底层一看就是封装了一个Socket
 				// 他的SocketChannel是连接到底层的Socket网络连接上去的数据通道
 				// 就是负责基于网络读写数据的
-				channel.configureBlocking(false);  
-				channel.connect(new InetSocketAddress("localhost", 9000)); 
+				channel.configureBlocking(false);
+				channel.connect(new InetSocketAddress("localhost", 9000));
 				// 一定是发起了一个TCP三次握手，尝试建立连接
 				// 他在后台一定是跟server端在进行三次握手，如果握手成功了之后
 				// 就是说一定是建立了一个连接
@@ -35,7 +35,7 @@ public class NIOClient {
 				selector = Selector.open();  
 				channel.register(selector, SelectionKey.OP_CONNECT);  // 监听connect行为
 				
-				while(true){  
+				while(true){
 					selector.select();   // 服务器程序一定会给客户端返回一个响应
 					
 					Iterator<SelectionKey> keysIterator = selector.selectedKeys().iterator();  
@@ -81,7 +81,7 @@ public class NIOClient {
 			            	channel.register(selector, SelectionKey.OP_READ);
 			            } 
 					}  
-				}                            
+				}
 			} catch (Exception e) {  
 				e.printStackTrace();  
 			} finally{  

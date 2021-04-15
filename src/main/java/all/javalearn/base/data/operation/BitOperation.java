@@ -1,4 +1,4 @@
-package all.javalearn.base;
+package all.javalearn.base.data.operation;
 
 /**
  * @Function:hahahahahaaaaaa

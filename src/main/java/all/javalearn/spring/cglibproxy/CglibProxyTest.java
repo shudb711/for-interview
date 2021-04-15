@@ -19,6 +19,7 @@ public class CglibProxyTest
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(PersonServiceImpl.class);
         enhancer.setCallback(new MethodInterceptor() {
+            @Override
             public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
                 System.out.println("Before:" + method);
                 Object object = methodProxy.invokeSuper(o, objects);
