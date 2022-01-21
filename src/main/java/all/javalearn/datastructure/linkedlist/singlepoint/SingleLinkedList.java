@@ -10,6 +10,30 @@ public class SingleLinkedList<K>
         this.head = null;
     }
 
+    //反转链表，迭代
+    public Node reverse1() {
+        Node pre = null;
+        Node next = null;
+
+        Node node = head;
+        while (node != null) {
+            next = node.next;
+            node.next = pre;
+            pre = node;
+            node = next;
+        }
+        return pre;
+    }
+
+    //反转链表，递归 todo
+    public Node reverse2(Node head) {
+        if (head.next == null) return head;
+        Node last = reverse2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+
     public int getSize() {
         return size;
     }
@@ -25,6 +49,7 @@ public class SingleLinkedList<K>
     public void setHead(Node head) {
         this.head = head;
     }
+
 
     /**
      * 添加元素
@@ -116,25 +141,6 @@ public class SingleLinkedList<K>
             }
         }
         return null;
-    }
-
-    //反转
-    public Node reverse()
-    {
-        Node pre = null;
-        Node next = null;
-
-        Node node = head;
-        while (node != null) {
-            next = node.next;
-
-            node.next = pre;
-
-            pre = node;
-            node = next;
-        }
-
-        return pre;
     }
 
     class Node<K>

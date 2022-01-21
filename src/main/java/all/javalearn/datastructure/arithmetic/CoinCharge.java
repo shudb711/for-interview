@@ -82,7 +82,7 @@ public class CoinCharge {
 
     public static void main(String[] args) {
         int[] coins = {1,2,5,7};
-        int amount = 78;
+        int amount = 80;
 //        System.out.println(coinCharge1(coins, amount));
 
         int[] memory = new int[amount + 1];

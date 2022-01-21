@@ -15,13 +15,14 @@ import java.lang.reflect.Method;
 public class CglibProxyTest
 {
     public static void main(String[] args) {
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "D:\\code");
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/workspace/development/for-interview");
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(PersonServiceImpl.class);
         enhancer.setCallback(new MethodInterceptor() {
             @Override
             public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
                 System.out.println("Before:" + method);
+//                Object object = methodProxy.invoke(o, objects);
                 Object object = methodProxy.invokeSuper(o, objects);
                 System.out.println("After:" + method);
                 return object;

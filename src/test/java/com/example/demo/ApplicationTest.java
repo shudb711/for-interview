@@ -4,12 +4,15 @@ import all.DemoApplication;
 //import all.javalearn.redis.distributelock.JedisLockUtil;
 import all.javalearn.spring.aop.action.AopController;
 import all.javalearn.spring.aop.error.AsyncService;
+import all.javalearn.spring.ioc.autowire.Apple;
+import all.javalearn.spring.ioc.autowire.Banana;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -72,5 +75,13 @@ public class ApplicationTest
     public void testAsync(){
         System.out.println(Thread.currentThread().getName());
         asyncService.async1();
+    }
+
+    @Resource
+    private Banana banana;
+
+    @Test
+    public void inject() {
+        System.out.println(banana);
     }
 }
