@@ -1,5 +1,7 @@
 package all.javalearn.datastructure.arithmetic;
 
+import java.util.HashMap;
+
 /**
  * @author by shudebao@tal.com
  * @description
@@ -144,4 +146,66 @@ public class ArrayTest {
         }
     }
 
+    /**
+     * 二分查找  力扣704
+     * @param x
+     * @return
+     */
+    public static int findX(int[] arr,int x){
+        int left = 0;
+        int right = arr.length - 1;
+        while (left <= right) {
+            int middle = (left + right) / 2;
+            if (arr[middle] == x) {
+                return middle;
+            } else if (arr[middle] < x){
+                left = middle + 1;
+            } else if (arr[middle] > x) {
+                right = middle - 1;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 力扣167  有序数组,获取两个元素和为x的索引
+     * @param arr
+     * @param target
+     * @return
+     */
+    public int[] twoSum(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        while (left < right) {
+            if (arr[left] + arr[right] == target) {
+                return new int[]{left + 1, right + 1};
+            } else if (arr[left] + arr[right] < target) {
+                left++;
+            } else if (arr[left] + arr[right] > target) {
+                right--;
+            }
+        }
+        return new int[]{-1, -1};
+    }
+
+    /**
+     * 力扣1  获取两个元素和为x的索引
+     * @param arr
+     * @param target
+     * @return
+     */
+    public int[] twoSum2(int[] arr, int target) {
+        int length = arr.length;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < length; i++) {
+            map.put(arr[i], i);
+        }
+
+        for (int i = 0; i < length; i++) {
+            int remain = target - arr[i];
+            if (map.containsKey(remain) && map.get(remain) != i) {
+                return new int[]{i, map.get(remain)};
+            }
+        }
+        return new int[]{-1, -1};
+    }
 }
